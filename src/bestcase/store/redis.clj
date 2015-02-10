@@ -59,8 +59,8 @@
         (car/hdel active-test-descriptor-key test-name)
         (car/hset inactive-test-descriptor-key test-name t))))
   (get-alternative-name [_ test-name i]
-    (car/with-conn pool spec-server
-      (car/get (test-identity-alternative-key test-name i) )))
+    (keyword (car/with-conn pool spec-server
+      (car/get (test-identity-alternative-key test-name i) ))))
   (set-alternative-name! [_ test-name i alternative-name]
     (car/with-conn pool spec-server
       (car/set (test-identity-alternative-key test-name i) alternative-name)))
@@ -72,11 +72,11 @@
   (get-all-counts [_ test-name]
     (into {} (for [[k v] (car/with-conn pool spec-server
                            (car/hgetall* (test-count-key test-name)))]
-               [k (car/as-long v)])))
+               [(keyword k) (car/as-long v)])))
   (get-all-scores [_ test-name]
     (into {} (for [[k v] (car/with-conn pool spec-server
                            (car/hgetall* (test-score-key test-name)))]
-               [k (car/as-long v)])))
+               [(keyword k) (car/as-long v)])))
   (increment-count! [_ test-name alternative-name]
     (car/with-conn pool spec-server
       (car/hincrby (test-count-key test-name) alternative-name 1)))

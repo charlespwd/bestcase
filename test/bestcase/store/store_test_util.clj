@@ -33,4 +33,3 @@
                                             :alternative1-goal2 1})
      (end-test! store test0)
      (end-test! store test1))))
-  
