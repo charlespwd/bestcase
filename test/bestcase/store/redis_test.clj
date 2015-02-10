@@ -5,7 +5,9 @@
         [bestcase.store.redis])
   (:require [taoensso.carmine :as car]))
 
+(def redis-server-conn {:pool {} :spec {}})
+
 (deftest all-tests
-  (let [store (create-redis-store (car/make-conn-pool) (car/make-conn-spec))]
+  (let [store (create-redis-store redis-server-conn)]
     (all-store-tests store)))
 
