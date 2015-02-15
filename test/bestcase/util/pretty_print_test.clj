@@ -88,9 +88,11 @@
             "  :b (189 trials)"
             "    :registered  (28 or 14.814815%) [-1.1322354025976662] not yet confident"
             "  :a (180 trials)"
-            "    :registered  (45 or 25.0%) [1.3252611961151077 90%] * fairly confident"
             "    :paid  (175 or 97.22222%) [54.83514153989365 99.9%] **** extremely confident"
-            "  :control (182 trials) CONTROL" "    :registered  (35 or 19.23077%) [0.0] not yet confident" "    :paid  (5 or 2.7472527%) [0.0] not yet confident"])
+            "    :registered  (45 or 25.0%) [1.3252611961151077 90%] * fairly confident"
+            "  :control (182 trials) CONTROL"
+            "    :paid  (5 or 2.7472527%) [0.0] not yet confident"
+            "    :registered  (35 or 19.23077%) [0.0] not yet confident"])
      (fact (result->string-seq r2) =>
            ["Test Name: :test-1"
             "Test Type: AB"
@@ -99,11 +101,11 @@
             "  :b (189 trials)"
             "    :registered  (28 or 14.814815%) [-2.4634739311304963 99%] *** very confident"
             "  :a (180 trials) CONTROL"
-            "    :registered  (45 or 25.0%) [0.0] not yet confident"
             "    :paid  (175 or 97.22222%) [0.0] not yet confident"
+            "    :registered  (45 or 25.0%) [0.0] not yet confident"
             "  :control (182 trials)"
-            "    :registered  (35 or 19.23077%) [-1.3252611961151077 90%] * fairly confident"
-            "    :paid  (5 or 2.7472527%) [-54.83514153989365 99.9%] **** extremely confident"])
+            "    :paid  (5 or 2.7472527%) [-54.83514153989365 99.9%] **** extremely confident"
+            "    :registered  (35 or 19.23077%) [-1.3252611961151077 90%] * fairly confident"])
      (fact (result->string-seq r3) =>
            ["Test Name: :test-2"
             "Test Type: AB"
@@ -111,4 +113,5 @@
             "  Take these results with a grain of salt since your sample size is small!"
             "    :registered  (2 or 25.0%) [-4.898979485566357 99.9%] **** extremely confident"
             "  :control (10 trials) CONTROL"
-            "  Take these results with a grain of salt since your sample size is small!" "    :registered  (10 or 100.0%) [0.0] not yet confident"]))))
+            "  Take these results with a grain of salt since your sample size is small!"
+            "    :registered  (10 or 100.0%) [0.0] not yet confident"]))))
