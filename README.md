@@ -120,16 +120,6 @@ The Performance Section of the [User Guide](//github.com/charlespwd/bestcase/wik
 
 If you are encountering performance bottlenecks, let me know and I'll spend some time optimizing things and implementing a hybrid backend (in-memory + Redis).
 
-## Roadmap
-
-* Reporting ongoing tests to analytics libraries or 3rd party services such as MixPanel
-* Hybrid backend using a database + Redis as opposed to Redis alone
-* Hybrid backend using an in-memory store + Redis snapshots at fixed-intervals to optimize for performance
-* Multi-armed bandit tests
-* Visualizations of results
-
-Don't hesitate to email me at charles@cpclermont.com if you have suggestions or comments.  I am friendly.
-
 ## Further Reading On A/B Testing
 
 * [A/Bingo](http://www.bingocardcreator.com/abingo) (the inspiration), its author's [blog](http://www.kalzumeus.com/blog/), and its [greatest hits](http://www.kalzumeus.com/greatest-hits/).
