@@ -1,6 +1,6 @@
 # Bestcase
 
-[![Build Status](https://secure.travis-ci.org/jeandenis/bestcase.png)](http://travis-ci.org/jeandenis/bestcase)
+[![Build Status](https://secure.travis-ci.org/charlespwd/bestcase.png)](http://travis-ci.org/charlespwd/bestcase)
 
 Bestcase is an A/B and multivariate testing library for Clojure.
 
@@ -25,7 +25,7 @@ You can run the tests using `lein with-profile dev midje`.  By default, the test
 
 ## Usage
 
-Check out the [User Guide](//github.com/jeandenis/bestcase/wiki/User-Guide) and the [Examples Page](//github.com/jeandenis/bestcase/wiki/Examples) for detailed documentation.
+Check out the [User Guide](//github.com/charlespwd/bestcase/wiki/User-Guide) and the [Examples Page](//github.com/charlespwd/bestcase/wiki/Examples) for detailed documentation.
 
 ```clojure
 (ns your-app
@@ -41,7 +41,7 @@ Check out the [User Guide](//github.com/jeandenis/bestcase/wiki/User-Guide) and 
 ;; We have three alternatives to which users are allocated evenly:
 (bc/alt :purchase-button-test
         :red-button   "/images/button1.jpg"
-        :green-button "/images/button2.jpg"	
+        :green-button "/images/button2.jpg"
         :blue-button  "/images/button3.jpg")
 
 ...
@@ -93,7 +93,7 @@ This returns a handler that matches the route `/bestcase` to provide you a dashb
 
 ## Learning Bestcase
 
-Bestcase has a lot more functionality which you can learn about in the [User Guide](//github.com/jeandenis/bestcase/wiki).  With bestcase, you can:
+Bestcase has a lot more functionality which you can learn about in the [User Guide](//github.com/charlespwd/bestcase/wiki).  With bestcase, you can:
 
 * end a test and choose a winner programmatically;
 * put different weights on alternatives so that some are tested more often than others;
@@ -106,13 +106,13 @@ Bestcase has a lot more functionality which you can learn about in the [User Gui
 
 ## Documentation
 
-* [User Guide](//github.com/jeandenis/bestcase/wiki/User-Guide)
-* [Examples](//github.com/jeandenis/bestcase/wiki/Examples)
-* [API Docs](http://jeandenis.github.com/bestcase/bestcase.core.html)
+* [User Guide](//github.com/charlespwd/bestcase/wiki/User-Guide)
+* [Examples](//github.com/charlespwd/bestcase/wiki/Examples)
+* [API Docs](http://charlespwd.github.com/bestcase/bestcase.core.html)
 
 ## Performance
 
-The Performance Section of the [User Guide](//github.com/jeandenis/bestcase/wiki/User-Guide) contains arbitrary, non-rigorous performance non-benchmarks.
+The Performance Section of the [User Guide](//github.com/charlespwd/bestcase/wiki/User-Guide) contains arbitrary, non-rigorous performance non-benchmarks.
 
 * If you are handling hundreds (100s) of requests per second, you will be just fine.
 * If you are handling many thousands (1000s) of requests per second, benchmark bestcase first, but you should be fine.
@@ -128,7 +128,7 @@ If you are encountering performance bottlenecks, let me know and I'll spend some
 * Multi-armed bandit tests
 * Visualizations of results
 
-Don't hesitate to email me at jeandenis at gmail.com if you have suggestions or comments.  I am friendly.
+Don't hesitate to email me at charles@cpclermont.com if you have suggestions or comments.  I am friendly.
 
 ## Further Reading On A/B Testing
 
@@ -157,6 +157,7 @@ I'd also like to thank the authors of the following Clojure libraries, which are
 
 ## License
 
-Copyright © 2012 Jean-Denis Greze
+Copyright © 2012 Jean-Denis Greze, original author, [github](//github.com/jeandenis)<br />
+Copyright © 2015 Charles-Philippe Clermont
 
 Like Clojure, bestcase is distributed under the Eclipse Public License.
