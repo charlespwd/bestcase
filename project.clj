@@ -1,4 +1,4 @@
-(defproject bestcase "0.1.0"
+(defproject bestcase "0.2.0"
   :description "An A/B testing library for clojure"
   :url "https://github.com/jeandenis/bestcase"
   :license {:name "Eclipse Public License"
