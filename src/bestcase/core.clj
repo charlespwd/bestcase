@@ -294,8 +294,8 @@
                {:alternative-name k
                 :count c
                 :goal-results
-                (for [[k2 s] ss :when (.startsWith k2 (str (name k) "|"))]
-                  {:goal-name (subs k2 (inc (.length (name k))))
+                (for [[k2 s] ss :when (.startsWith (name k2) (str (name k) "|"))]
+                  {:goal-name (subs (name k2) (inc (.length (name k))))
                    :score s})})
           control
           (if-let [c (some #(if (= control-alternative-name
@@ -348,7 +348,8 @@
     (doall (for [[name v] ts
                  :when (and (not (nil? v))
                             (not (empty? v)))
-                 :let [r (results name (first (:alternative-names v)))]] r))))
+                 :let [r (results name (first (:alternative-names v)))]]
+             r))))
 
 (defn get-all-inactive-test-results
   []
