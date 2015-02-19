@@ -1,6 +1,6 @@
-(defproject bestcase "0.2.0"
+(defproject com.cpclermont/bestcase "0.2.0"
   :description "An A/B testing library for clojure"
-  :url "https://github.com/jeandenis/bestcase"
+  :url "https://github.com/charlespwd/bestcase"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
@@ -18,7 +18,7 @@
                    [codox "0.8.10"]]
          :codox {:exclude [bestcase.for-testing]
                  :src-dir-uri
-                 "http://github.com/jeandenis/bestcase/tree/master/"
+                 "http://github.com/charlespwd/bestcase/tree/master/"
                  :src-linenum-anchor-prefix "L"}
          :repositories {"stuart" "http://stuartsierra.com/maven2"}}})
 
