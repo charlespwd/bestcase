@@ -4,6 +4,8 @@
 
 Bestcase is an A/B and multivariate testing library for Clojure.
 
+[![Version Number](https://clojars.org/com.cpclermont/bestcase/latest-version.svg)](https://clojars.org/com.cpclermont/bestcase)
+
 ## Features
 
 * Create an A/B test in **one line of code**
