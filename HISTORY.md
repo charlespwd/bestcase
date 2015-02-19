@@ -1,4 +1,9 @@
 
+0.2.1 / 2015-02-19
+==================
+
+  * Fix .startWith bug. Critically broken for redis store.
+
 0.2.0 / 2015-02-18
 ==================
 

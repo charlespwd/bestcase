@@ -20,7 +20,7 @@ Bestcase is an A/B and multivariate testing library for Clojure.
 The easiest way to get started with bestcase is to add it to your leiningen dependencies in your project.clj file:
 
 ```clojure
-[com.cpclermont/bestcase "0.2.0"]
+[com.cpclermont/bestcase "0.2.1"]
 ```
 
 You can run the tests using `lein with-profile dev midje`.  By default, the tests use the in-memory store.
