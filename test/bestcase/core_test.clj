@@ -11,9 +11,7 @@
 (declare all-core-tests)
 
 (deftest all-tests
-  ;; DISABLE ALL REDIS TESTS FOR TRAVIS-CS
-  ;; (all-core-tests (create-redis-store (car/make-conn-pool)
-  ;;                                     (car/make-conn-spec)))
+  (all-core-tests (create-redis-store {:pool nil :spec nil})) ;; defaults
   (all-core-tests (create-memory-store)))
 
 (defn all-core-tests
@@ -106,7 +104,7 @@
 
   ;; ending tests & multiple stores
   (time
-   (do 
+   (do
      (let [test1 (keyword (str (rand)))
            identity1 (keyword (str (rand)))
            identity2 (keyword (str (rand)))]
@@ -117,7 +115,7 @@
          (let [a (alt-fns test1 {:alternative1 (fn [] "alt1")
                                  :alternative2 (fn [] "alt2")})]
            (end test1 :alternative2)
-           
+
            ;; keep getting the same alternative after the tests is ended
            (fact (alt-fns test1 {:alternative1 (fn [] "alt1")
                                  :alternative2 (fn [] "alt2")}) => "alt2")
@@ -133,7 +131,7 @@
                                     :test-type :ab-test
                                     :alternatives
                                     (just (contains {:count 1}))}))))
-       
+
        ;; same for a different identity
        (with-identity identity2
          (fact (alt-fns test1 {:alternative1 (fn [] "alt1")
@@ -262,7 +260,7 @@
                    :in-any-order)}))
      (end test1 :a)
      (end test2 :a)))
-  
+
   ;; get results for all tests
   (time
    (do
@@ -298,7 +296,7 @@
                                 (:count (second (:alternatives r))))) 200) =>
                                 truthy))
        (end test1 :a))))
-  
+
   ;; all weighed alternatives are randomdly distributed by weights
   (time
    (do
@@ -326,11 +324,11 @@
                                 (* 0.30 10000))) 200) => truthy)
          (fact (< (cmath/abs (- (:count d)
                                 (* 0.40 10000))) 200) => truthy)
-         (end test1 :a)))))                           
-  
+         (end test1 :a)))))
+
   ;; exceptions and bad parameters
   (time
-   (do 
+   (do
      (let [test1 (keyword (str (rand)))
            non-existent-test (keyword (str (rand)))
            identity1 (keyword (str (rand)))]
@@ -351,7 +349,7 @@
        (fact (end test1 :b) => nil)
        (fact (end test1 nil) => nil)
        (end test1 :a))
-     
+
      ;; exceptions on
      (let [test1 (keyword (str (rand)))
            non-existent-test (keyword (str (rand)))
