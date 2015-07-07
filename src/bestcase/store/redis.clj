@@ -87,9 +87,10 @@
       (car/hincrby (test-score-key test-name)
                    alternative-name-and-goal-name 1)))
   (get-user-scored-count [_ test-name goal-name i]
-    (wcar server
-      (if-let [c (car/hget (test-user-scored-key test-name goal-name) i)]
-        c 0)))
+    (car/as-long
+      (wcar server
+        (if-let [c (car/hget (test-user-scored-key test-name goal-name) i)]
+          c 0))))
   (increment-user-scored! [_ test-name goal-name i]
     (wcar server
       (car/hincrby (test-user-scored-key test-name goal-name) i 1))))
