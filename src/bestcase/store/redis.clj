@@ -47,11 +47,13 @@
       (wcar server
         (car/hset active-test-descriptor-key test-name (merge t descriptor)))))
   (get-all-active-tests [_]
-    (wcar server
-      (car/hgetall* active-test-descriptor-key)))
+    (into {} (map (fn [[k v]] [(keyword k) v])
+                  (wcar server
+                    (car/hgetall* active-test-descriptor-key)))))
   (get-all-inactive-tests [_]
-    (wcar server
-      (car/hgetall* inactive-test-descriptor-key)))
+    (into {} (map (fn [[k v]] [(keyword k) v])
+                  (wcar server
+                    (car/hgetall* inactive-test-descriptor-key)))))
   (end-test! [_ test-name]
     (let [t (wcar server
               (car/hget active-test-descriptor-key test-name))]
@@ -85,9 +87,10 @@
       (car/hincrby (test-score-key test-name)
                    alternative-name-and-goal-name 1)))
   (get-user-scored-count [_ test-name goal-name i]
-    (wcar server
-      (if-let [c (car/hget (test-user-scored-key test-name goal-name) i)]
-        c 0)))
+    (car/as-long
+      (wcar server
+        (if-let [c (car/hget (test-user-scored-key test-name goal-name) i)]
+          c 0))))
   (increment-user-scored! [_ test-name goal-name i]
     (wcar server
       (car/hincrby (test-user-scored-key test-name goal-name) i 1))))
